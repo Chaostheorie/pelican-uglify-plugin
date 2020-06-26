@@ -17,7 +17,7 @@ npm install -g uglify-js-es6
 
 You will need to place the `uglify.py` in your `plugins/` folder and add `uglify` to your `PLUGINS = ['yuicompressor']` config.
 
-The Plugin minifies all css and js files. This may add a lot of processing when making content. Excluded are files ending either `.min.js` or `.min.css`.
+The Plugin minifies all css and js files. This may add a lot of processing when making content. Excluded are files ending either `.min.js` or `.min.css`. The plugin *alters* the names of `js`/ `css` files from `name.js` and `name.css` to `name.min.js` and `name.min.css`. Keep this in mind when importing your `css` and `js` files.
 
 You can change the `UGLIFYJS_EXECUTABLE` and `UGLIFYCSS_EXECUTABLE` arcording to your needs if needed. The defaults are `UGLIFYJS_EXECUTABLE=uglifyjs` and `UGLIFYCSS_EXECUTABLE=uglifycss`.
 
