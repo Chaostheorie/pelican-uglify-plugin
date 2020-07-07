@@ -21,7 +21,7 @@ The Plugin minifies all css and js files. This may add a lot of processing when 
 
 You can change the `UGLIFYJS_EXECUTABLE` and `UGLIFYCSS_EXECUTABLE` arcording to your needs if needed. The defaults are `UGLIFYJS_EXECUTABLE=uglifyjs` and `UGLIFYCSS_EXECUTABLE=uglifycss`. You may also pass options (such as `-c`) after the uglifycss/ -js executable with `UGLIFYJS_OPTIONS=[your options]` (defualt = \["-c", "--source-map"\]) and `UGLIFYCSS_OPTIONS=[your options]` (the options need to be iterable, e.g. list or set).
 
-As a tool for excluding content that should not be minified the `UGLIFY_EXCLUDE` option is avalaible and should be provided as a list of [regular expressions](https://docs.python.org/3/howto/regex.html).
+As a tool for excluding content that should not be minified the `UGLIFY_EXCLUDE` option is avalaible and should be provided as a list of [regular expressions](https://docs.python.org/3/howto/regex.html). Only a [`match`](https://docs.python.org/2/library/re.html#re.match) is required. In order to allow a better accessabilty `match`is run against the *absolute* filepath instead of just the name.
 
 ## License and Maintainer
 

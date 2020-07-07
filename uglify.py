@@ -28,15 +28,14 @@ def minify(pelican):
     for dirpath, _, filenames in os.walk(pelican.settings["OUTPUT_PATH"]):
         for name in filenames:
             _name = os.path.splitext(name)
-            if True in [match(regex, name) for regex in exclude]:
+            filepath = os.path.join(dirpath, name)
+            if None not in [match(regex, filepath) for regex in exclude]:
                 continue
             elif _name[1] == ".css" and _name[0][-3:] != "min":
-                filepath = os.path.join(dirpath, name)
                 logger.info(f"minify {filepath}")
                 check_call([css, *css_options, filepath,
                             "--output", f"{filepath[:-4]}.min.css"])
             elif os.path.splitext(name)[1] == ".js" and _name[0][-3:] != "min":
-                filepath = os.path.join(dirpath, name)
                 logger.info(f"minify {filepath}")
                 check_call([js, *js_options, filepath,
                             "-o", f"{filepath[:-3]}.min.js"])
